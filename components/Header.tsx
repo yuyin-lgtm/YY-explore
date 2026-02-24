@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleDarkMode, isDarkMode }) => {
       case '/creators': return 'Creator CRM';
       case '/automations': return 'Automation Rules';
       case '/waste-report': return 'Waste & Efficiency Analysis';
+      case '/visa-monitor': return 'Visa Appointment Monitor';
       default: return 'Overview';
     }
   };

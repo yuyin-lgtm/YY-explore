@@ -9,6 +9,7 @@ import Creatives from './screens/Creatives';
 import Creators from './screens/Creators';
 import Automations from './screens/Automations';
 import WasteReport from './screens/WasteReport';
+import VisaMonitor from './screens/VisaMonitor';
 
 const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -32,6 +33,7 @@ const App: React.FC = () => {
               <Route path="/creators" element={<Creators />} />
               <Route path="/automations" element={<Automations />} />
               <Route path="/waste-report" element={<WasteReport />} />
+              <Route path="/visa-monitor" element={<VisaMonitor />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

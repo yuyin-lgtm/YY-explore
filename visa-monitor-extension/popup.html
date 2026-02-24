@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 360px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 13px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e3a5f, #0f172a);
+      padding: 16px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+
+    .header p {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #475569;
+      flex-shrink: 0;
+    }
+
+    .status-dot.active {
+      background: #22c55e;
+      box-shadow: 0 0 6px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    .status-dot.found {
+      background: #f59e0b;
+      box-shadow: 0 0 8px #f59e0b;
+      animation: pulse 0.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-text {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .status-text.active { color: #22c55e; }
+    .status-text.found { color: #f59e0b; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 12px 16px;
+    }
+
+    .stat-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-top: 2px;
+    }
+
+    .slots-section {
+      padding: 12px 16px;
+      display: none;
+    }
+
+    .slots-section.visible { display: block; }
+
+    .slots-section h3 {
+      font-size: 12px;
+      color: #f59e0b;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .slot-list {
+      background: #1e293b;
+      border: 1px solid #f59e0b33;
+      border-radius: 8px;
+      padding: 8px;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .slot-item {
+      padding: 4px 8px;
+      font-size: 12px;
+      color: #fbbf24;
+      border-bottom: 1px solid #334155;
+    }
+
+    .slot-item:last-child { border-bottom: none; }
+
+    .controls {
+      padding: 12px 16px;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .control-row label {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    select, input[type="number"] {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      outline: none;
+    }
+
+    select:focus, input:focus {
+      border-color: #60a5fa;
+    }
+
+    .toggle {
+      position: relative;
+      width: 36px;
+      height: 20px;
+    }
+
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      background: #334155;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-slider::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 2px;
+      bottom: 2px;
+      background: #e2e8f0;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .toggle input:checked + .toggle-slider {
+      background: #3b82f6;
+    }
+
+    .toggle input:checked + .toggle-slider::before {
+      transform: translateX(16px);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+    }
+
+    .btn-start:hover { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+
+    .btn-stop {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+
+    .btn-stop:hover { background: linear-gradient(135deg, #f87171, #ef4444); }
+
+    .btn-open {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #60a5fa;
+      margin-top: 8px;
+    }
+
+    .btn-open:hover { border-color: #60a5fa; }
+
+    .footer {
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 10px;
+      color: #475569;
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>US Visa Slot Monitor</h1>
+    <p>Monitors usvisascheduling.com for appointment availability</p>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-dot" id="statusDot"></div>
+    <span class="status-text" id="statusText">Stopped</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Checks</div>
+      <div class="stat-value" id="checkCount">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Last Check</div>
+      <div class="stat-value" id="lastCheck">--</div>
+    </div>
+  </div>
+
+  <div class="slots-section" id="slotsSection">
+    <h3>Available Slots Found!</h3>
+    <div class="slot-list" id="slotList"></div>
+  </div>
+
+  <div class="controls">
+    <div class="control-row">
+      <label>Refresh interval</label>
+      <select id="refreshInterval">
+        <option value="15">15 seconds</option>
+        <option value="30" selected>30 seconds</option>
+        <option value="60">1 minute</option>
+        <option value="120">2 minutes</option>
+        <option value="300">5 minutes</option>
+      </select>
+    </div>
+
+    <div class="control-row">
+      <label>Sound alerts</label>
+      <label class="toggle">
+        <input type="checkbox" id="soundToggle" checked />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <div class="control-row">
+      <label>Desktop notifications</label>
+      <label class="toggle">
+        <input type="checkbox" id="notifToggle" checked />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <button class="btn btn-start" id="startBtn">Start Monitoring</button>
+    <button class="btn btn-stop" id="stopBtn" style="display:none">Stop Monitoring</button>
+    <button class="btn btn-open" id="openBtn">Open Scheduling Page</button>
+  </div>
+
+  <div class="footer">
+    You must be logged in to usvisascheduling.com for this to work.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@ const Sidebar: React.FC = () => {
     { name: 'Creators', path: '/creators', icon: 'group' },
     { name: 'Automations', path: '/automations', icon: 'bolt' },
     { name: 'Waste Report', path: '/waste-report', icon: 'bar_chart' },
+    { name: 'Visa Monitor', path: '/visa-monitor', icon: 'flight' },
   ];
 
   return (
