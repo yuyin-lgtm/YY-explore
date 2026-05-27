@@ -1,0 +1,205 @@
+{
+  "pageTitle": "Reacher × TikTok Shop · Merchant Operator Training Signup",
+  "nav": {
+    "reacher": "Reacher",
+    "separator": "·",
+    "subtitle": "TikTok Shop Merchant Training",
+    "signUpNow": "Sign Up Now"
+  },
+  "hero": {
+    "badge": "Reacher Plus · Creator Community · Operator Training",
+    "title": "Built for <em>scaling brands</em> on TikTok Shop.",
+    "description": "Free operator training from the team behind $716M+ in TikTok Shop GMV. Hand off the heavy lifting to Reacher Plus — your dedicated managed-service team for the entire affiliate program.",
+    "checkEligibility": "Check Eligibility",
+    "registerNow": "Register Now"
+  },
+  "stats": {
+    "byTheNumbers": "By the numbers",
+    "title": "Real impact, <em>at platform scale</em>.",
+    "subtitle": "What the Reacher platform has delivered across the brands we operate alongside.",
+    "gmv": {
+      "value": "$716M",
+      "label": "Total GMV driven via Reacher"
+    },
+    "outreach": {
+      "value": "134.2M",
+      "label": "Creator-automation outreach interactions"
+    },
+    "videos": {
+      "value": "16.7M",
+      "label": "Videos generated for clients"
+    },
+    "views": {
+      "value": "113B",
+      "label": "Total views generated"
+    },
+    "caseStudyLabel": "Beauty & personal care · in under 3 months",
+    "caseStudyTitle": "The results <em>speak for themselves</em>.",
+    "caseStudyDesc": "Beauty & personal care brand — scaled with Reacher's outreach + automation stack.",
+    "sampleApprovals": {
+      "value": "9,343",
+      "label": "Sample approvals per month",
+      "prev": "up from 1,886"
+    },
+    "sampleRequests": {
+      "value": "$98K",
+      "label": "Sample requests per month",
+      "prev": "up from $15K"
+    },
+    "creatorsReached": {
+      "value": "463K",
+      "label": "Unique creators reached",
+      "prev": "from zero"
+    }
+  },
+  "offering": {
+    "title": "Beyond the training — <em>two ways</em> Reacher works with brands.",
+    "subtitle": "Training participants get a Reacher Creator Community invite, and can apply for Reacher Plus — our managed-service team running your TikTok Shop affiliate program.",
+    "reacherPlus": "REACHER PLUS",
+    "reacherPlusTitle": "Your <em>dedicated team</em> running the program.",
+    "reacherPlusDesc": "A fully managed TikTok Shop affiliate operation — a TikTok Shop Manager owns strategy and quality, a dedicated Account Manager handles execution.",
+    "reacherPlusFeatures": [
+      "Dedicated TikTok Shop Manager",
+      "Dedicated Account Manager",
+      "Affiliate outreach + activation",
+      "Affiliate Center management",
+      "Weekly + ad-hoc reporting",
+      "Bi-weekly strategy calls",
+      "1-hour reply SLA"
+    ],
+    "creatorCommunity": "CREATOR COMMUNITY",
+    "creatorCommunityTitle": "The Reacher <em>Creator Community</em>.",
+    "creatorCommunityFeatures": [
+      "Top TikTok Shop creator access",
+      "Private Discord server",
+      "Creator-led content briefings",
+      "Monthly $1M+ GMV creator Q&As",
+      "Retainer · Challenge · Contest access",
+      "Cross-brand peer network"
+    ]
+  },
+  "team": {
+    "foundersLabel": "Founders",
+    "foundersTitle": "Funded by people in <em>the e-commerce industry</em> before.",
+    "teamLabel": "The team teaching you",
+    "teamTitle": "<em>Operators</em> who've seen this before.",
+    "teamDesc": "Each session is taught by someone who's run TikTok Shop programs at scale — agency seats, brand seats, hundreds of launches.",
+    "founders": {
+      "bora": {
+        "name": "Bora Mutluoğlu",
+        "title": "Co-founder & CRO",
+        "bio": "TikTok Shop & creator-economy GTM. Creator, podcast & conference speaker. The lived experience that shapes how Reacher serves customers."
+      },
+      "jerry": {
+        "name": "Jerry Qian",
+        "title": "Co-founder & CEO",
+        "bio": "Prior Instagram shopping, Meta/NASA experience. The technical conviction behind an AI-first platform built for TikTok Shop."
+      }
+    },
+    "members": {
+      "stephen": {
+        "name": "Stephen",
+        "title": "CS / TikTok Shop Strategy",
+        "bio": "Former <strong>Director of Social Commerce</strong>. Scaled <strong>50+ brands</strong> from SMB to enterprise past <strong>7-figure GMV</strong> on TikTok Shop."
+      },
+      "carmela": {
+        "name": "Carmela",
+        "title": "CS / TikTok Shop Strategy",
+        "bio": "Former <strong>Head of TikTok Shop & Strategy</strong> at an award-winning <strong>U.S. TAP</strong>. Scaled 70+ brands. Specializes in <strong>cold-start launches</strong>."
+      },
+      "atakan": {
+        "name": "Atakan",
+        "title": "CS / TikTok Shop Strategy",
+        "bio": "Former <strong>Head of CSMs</strong> at a TikTok Shop agency. Prior leader at an Amazon Advertising SaaS platform. Scaled hundreds of brands."
+      },
+      "hussain": {
+        "name": "Hussain",
+        "title": "CS / TikTok Shop Strategy",
+        "bio": "<strong>Co-founder of the first 50 TSP agencies.</strong> Launched and scaled brands across beauty, bedding, health & wellness, baby, and home."
+      },
+      "yoji": {
+        "name": "Yoji",
+        "title": "CS / Strategy",
+        "bio": "Brand-building expert with <strong>10+ years</strong> across TikTok Shop, Amazon, Walmart, and programmatic media — data-driven marketplace strategies and high-ROI advertising."
+      }
+    }
+  },
+  "requirements": {
+    "step1Badge": "⚠️ STEP 1 · AUTHORIZE FIRST ⚠️",
+    "step1Title": "Authorize Reacher before training begins",
+    "step1Subtitle": "Authorization unlocks Reacher Plus features for participants — and lets you put what you learn to work the same day.",
+    "mandatory": "#1 MANDATORY",
+    "req1Title": "Active TikTok Shop seller + Reacher partner authorization",
+    "req1Desc": "<strong>This is the #1 requirement — no exceptions.</strong> You must be an active TikTok Shop seller (US) and authorize Reacher as your TikTok Shop service partner. Authorization unlocks free access to Reacher Plus features for training participants.",
+    "completeAuth": "COMPLETE REACHER AUTHORIZATION"
+  },
+  "form": {
+    "step2Badge": "STEP 2 · PICK YOUR SESSION",
+    "title": "Reserve your seat & <em>sign up</em>.",
+    "subtitle": "Two general sessions for merchants new to Reacher. Pick a session, then complete your registration below — training is completely free for eligible merchants.",
+    "availableSessions": "AVAILABLE SESSIONS",
+    "pickSession": "Pick your training session",
+    "sessions": {
+      "june-1": {
+        "date": "June 1, 2026",
+        "day": "Monday",
+        "time": "10:00 – 11:00 AM PT (1:00 – 2:00 PM ET)",
+        "topic": "Reacher 101 — getting started on TikTok Shop"
+      },
+      "june-4": {
+        "date": "June 4, 2026",
+        "day": "Thursday",
+        "time": "10:00 – 11:00 AM PT (1:00 – 2:00 PM ET)",
+        "topic": "Scale your TikTok Shop — Reacher automation walkthrough"
+      }
+    },
+    "available": "Available",
+    "sessionInfo": "Two general sessions to start — topical deep-dives (Spark Codes, GMV Max, Halo Effect, Affiliate Strategy with Bora) will follow based on demand. All sessions are recorded and sent to registered participants.",
+    "sessionCallout": "📅 Pick a session above, then complete the form below. Recordings shared with all registered merchants.",
+    "completeRegistration": "Complete your registration",
+    "businessName": "Business name",
+    "shopHandle": "TikTok Shop handle",
+    "contactEmail": "Contact email",
+    "reacherAccess": "Reacher access",
+    "reacherAccessOptions": {
+      "plus_existing": "I'm already a <strong>Reacher Plus</strong> managed-service client.",
+      "community_existing": "I'm in the <strong>Reacher Creator Community</strong>.",
+      "new_signup": "I'm new — I want to learn how Reacher works and explore Reacher Plus."
+    },
+    "biggestQuestion": "What's your biggest TikTok Shop question right now?",
+    "questionPlaceholder": "The challenge you're trying to solve, the metric you want to move, or the workflow you're stuck on. We prioritize these topics during the session and Q&A.",
+    "submitRegistration": "Submit Registration",
+    "submitting": "Submitting...",
+    "submitError": "Something went wrong. Please try again or contact us directly.",
+    "businessNamePlaceholder": "Your brand or business name",
+    "shopHandlePlaceholder": "@yourshop",
+    "emailPlaceholder": "you@brand.com"
+  },
+  "success": {
+    "title": "Registration complete!",
+    "description": "You're signed up for the Reacher TikTok Shop Merchant Training.",
+    "toast": "Registration submitted successfully!",
+    "emailSent": "Confirmation email sent",
+    "emailDetails": "Check your inbox for session details, a calendar invite (.ics), and preparation instructions. If you don't see it within a few minutes, check your spam folder.",
+    "yourSessions": "Your registered sessions",
+    "nextSteps": "What happens next",
+    "step1": "Check your email for the confirmation and calendar invite.",
+    "step2": "Complete the Reacher partner authorization (if you haven't already).",
+    "step3": "Join the session at the scheduled time — the link will be in your email.",
+    "authReminder": "Make sure you've completed the",
+    "authLink": "Reacher partner authorization",
+    "authReminderEnd": "before your first session."
+  },
+  "footer": {
+    "copyright": "© 2026 Reacher. All rights reserved.",
+    "disclaimer": "This training is only open to US TikTok Shop merchants who have completed Reacher partner authorization. Reacher Plus and Reacher Creator Community are trademarks of Reacher."
+  },
+  "validation": {
+    "businessNameRequired": "Business name is required",
+    "shopHandleRequired": "TikTok Shop handle is required",
+    "emailInvalid": "Please enter a valid email address",
+    "reacherAccessRequired": "Please select your Reacher access status",
+    "sessionsRequired": "Please select at least one training session",
+    "questionRequired": "Please share your biggest TikTok Shop question"
+  }
+}

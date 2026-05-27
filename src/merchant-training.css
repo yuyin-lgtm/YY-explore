@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
+:root {
+  --mt-brand: #335cff;
+  --mt-accent: #04c8f9;
+  --mt-orange: #f97316;
+  --mt-dark: #0a1430;
+  --mt-dark-deep: #060f1f;
+  --mt-dark-mid: #0d1e3a;
+  --mt-dark-light: #0a1628;
+}
+
+.merchant-training-gradient-bg {
+  background:
+    radial-gradient(ellipse at 30% 80%, rgba(4, 200, 249, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 20%, rgba(51, 92, 255, 0.22) 0%, transparent 50%),
+    linear-gradient(
+      180deg,
+      var(--mt-dark-deep) 0%,
+      var(--mt-dark-light) 40%,
+      var(--mt-dark-mid) 100%
+    );
+}
+
+.merchant-training-brand-gradient {
+  background: linear-gradient(135deg, var(--mt-accent) 0%, var(--mt-brand) 100%);
+}
+
+.merchant-training-text-brand-gradient {
+  background: linear-gradient(135deg, var(--mt-accent) 0%, var(--mt-brand) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.merchant-training-card-hover {
+  transition: all 0.3s ease;
+}
+
+.merchant-training-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 25px -5px rgba(10, 20, 48, 0.18),
+    0 10px 10px -5px rgba(10, 20, 48, 0.06);
+}
+
+.merchant-training-serif-em em {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--mt-accent) 0%, var(--mt-brand) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
