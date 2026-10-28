@@ -133,7 +133,7 @@ export function Select({
               id={listId}
               role="listbox"
               aria-label={label}
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0, transition: reducedFadeOut } : { opacity: 0, transition: { duration: motionTokens.duration.instant } }}
               transition={reduce ? reducedFade : { ...motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.fast, ease: motionTokens.ease.enter } }}

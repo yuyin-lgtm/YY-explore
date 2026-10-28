@@ -79,7 +79,7 @@ export function useToast() {
 export function ToastViewport({ toasts, onDismiss }: { toasts: ToastRecord[]; onDismiss: (id: string) => void }) {
   const reduce = useReducedMotion();
   return (
-    <div className="pointer-events-none fixed right-4 bottom-4 z-[70] flex w-[min(var(--size-toast),calc(100vw-32px))] flex-col gap-2" aria-label="Notifications">
+    <div role="region" aria-label="Notifications" className="pointer-events-none fixed right-4 bottom-4 z-[70] flex w-[min(var(--size-toast),calc(100vw-32px))] flex-col gap-2">
       <AnimatePresence initial={false}>
         {toasts.map((toast, index) => (
           <motion.div

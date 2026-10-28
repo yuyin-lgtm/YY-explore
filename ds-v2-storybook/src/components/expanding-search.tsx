@@ -191,27 +191,32 @@ export function ExpandingSearch({
           </button>
         )}
 
+        {expanded ? (
+          <div className="sr-only" aria-live="polite">
+            {empty ? "No results" : `${visible.length} ${visible.length === 1 ? "result" : "results"}`}
+          </div>
+        ) : null}
         <AnimatePresence>
           {expanded ? (
             <motion.div
               id={listId}
               role="listbox"
               aria-label={label}
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0, transition: reducedFadeOut } : { opacity: 0, transition: { duration: motionTokens.duration.instant, ease: motionTokens.ease.standard } }}
               transition={reduce ? reducedFade : { duration: motionTokens.duration.fast, ease: motionTokens.ease.enter }}
               className="absolute z-30 mt-2 w-full overflow-hidden rounded-panel border border-border bg-raised p-1.5 shadow-floating"
             >
               {empty ? (
-                <div className="px-3 py-6 text-center">
+                <div className="px-3 py-6 text-center" role="option" aria-selected="false" aria-disabled="true">
                   <p className="font-body-strong">No results</p>
-                  <p className="mt-1 font-caption">{emptyHint}</p>
+                  <p className="mt-1 text-xs text-foreground">{emptyHint}</p>
                 </div>
               ) : (
                 groups.map((group) => (
                   <div key={group.name} role="group" aria-label={group.name} className="mb-1 last:mb-0">
-                    <p className="px-2 py-1.5 font-label">{group.name}</p>
+                    <p role="presentation" className="px-2 py-1.5 text-xs font-medium tracking-wide text-foreground uppercase">{group.name}</p>
                     {group.items.map((item) => {
                       const index = visible.indexOf(item);
                       const selected = index === active;
@@ -234,7 +239,7 @@ export function ExpandingSearch({
                             <span className="block truncate font-body-strong">
                               <Highlight text={item.title} query={trimmed} />
                             </span>
-                            {item.meta ? <span className="block truncate font-caption">{item.meta}</span> : null}
+                            {item.meta ? <span className="block truncate text-xs text-foreground">{item.meta}</span> : null}
                           </span>
                         </div>
                       );
@@ -242,9 +247,6 @@ export function ExpandingSearch({
                   </div>
                 ))
               )}
-              <div className="sr-only" aria-live="polite">
-                {empty ? "No results" : `${visible.length} ${visible.length === 1 ? "result" : "results"}`}
-              </div>
             </motion.div>
           ) : null}
         </AnimatePresence>

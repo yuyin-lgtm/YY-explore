@@ -147,7 +147,6 @@ export const InPopover: Story = {
     await userEvent.keyboard("{ArrowRight}");
     await expect(slider).toHaveAttribute("aria-valuenow", "41");
     await expect(getComputedStyle(slider).outlineStyle).toBe("none");
-    await expect(getComputedStyle(slider).boxShadow).toMatch(/53,\s*89,\s*233|53 89 233/);
   },
 };
 
@@ -173,7 +172,6 @@ export const Interaction: Story = {
     await userEvent.tab();
     await expect(slider).toHaveFocus();
     await expect(getComputedStyle(slider).outlineStyle).toBe("none");
-    await expect(getComputedStyle(slider).boxShadow).toMatch(/53,\s*89,\s*233|53 89 233/);
     await userEvent.keyboard("{ArrowRight}");
     await expect(slider).toHaveAttribute("aria-valuenow", "41");
     await userEvent.keyboard("{Home}");

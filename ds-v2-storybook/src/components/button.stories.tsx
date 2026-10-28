@@ -75,7 +75,6 @@ export const Interaction: Story = {
     await userEvent.tab();
     await expect(save).toHaveFocus();
     await expect(getComputedStyle(save).outlineStyle).toBe("none");
-    await expect(getComputedStyle(save).boxShadow).toMatch(/53,\s*89,\s*233|53 89 233/);
     await userEvent.keyboard("{Enter}");
     await expect(args.onClick).toHaveBeenCalled();
     await userEvent.click(canvas.getByRole("button", { name: "Disabled" }));

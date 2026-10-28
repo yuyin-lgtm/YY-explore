@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { X } from "lucide-react";
 import type { ReactNode } from "react";
 import { cn } from "../lib/cn";
-import { motionTokens, reducedFade, reducedFadeOut } from "../lib/motion";
+import { motionTokens, reducedFade } from "../lib/motion";
 
 export type ChipProps = {
   /** Key half of a filter chip, such as "GMV". Omit for a plain chip. */
@@ -86,7 +86,7 @@ export function ChipGroup({
             layout
             initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={reduce ? { opacity: 0, transition: reducedFadeOut } : { opacity: 0, transition: { duration: motionTokens.duration.instant } }}
+            exit={{ opacity: 0, transition: { duration: 0 } }}
             transition={reduce ? reducedFade : motionTokens.spring.smooth}
           >
             <Chip label={chip.label} value={chip.value} selected={chip.selected} onRemove={() => onRemove(chip.id)} />

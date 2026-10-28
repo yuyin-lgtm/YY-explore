@@ -169,13 +169,17 @@ export function Combobox({
               id={listId}
               role="listbox"
               aria-label={label}
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: -4 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0, transition: reducedFadeOut } : { opacity: 0, transition: { duration: motionTokens.duration.instant } }}
               transition={reduce ? reducedFade : motionTokens.spring.smooth}
               className="absolute z-30 mt-1 max-h-72 w-full overflow-auto rounded-panel border border-border bg-raised p-1.5 shadow-floating"
             >
-              {filtered.length === 0 ? <div className="px-2 py-6 text-center font-caption">{emptyMessage}</div> : null}
+              {filtered.length === 0 ? (
+                <div role="option" aria-disabled="true" aria-selected="false" className="px-2 py-6 text-center font-caption">
+                  {emptyMessage}
+                </div>
+              ) : null}
               {filtered.map((item, index) => {
                 const isSelected = item.value === current;
                 const isActive = index === active;

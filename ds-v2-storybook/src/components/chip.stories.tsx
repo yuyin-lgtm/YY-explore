@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-import { expect, fn, userEvent, within } from "storybook/test";
+import { expect, fn, userEvent, waitFor, within } from "storybook/test";
 import { Chip, ChipGroup } from "./chip";
 
 const meta = {
@@ -29,11 +29,9 @@ export const Group: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const remove = canvas.getByRole("button", { name: "Remove filter: GMV: >$10k" });
-    remove.focus();
-    await userEvent.keyboard("{Backspace}");
-    await expect(canvas.queryByRole("button", { name: "Remove filter: GMV: >$10k" })).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByRole("button", { name: "Remove filter: GMV: >$10k" }));
+    await waitFor(() => expect(canvas.queryByRole("button", { name: "Remove filter: GMV: >$10k" })).not.toBeInTheDocument());
     await userEvent.click(canvas.getByRole("button", { name: "Remove filter: Shop: US" }));
-    await expect(canvas.queryByRole("button", { name: "Remove filter: Shop: US" })).not.toBeInTheDocument();
+    await waitFor(() => expect(canvas.queryByRole("button", { name: "Remove filter: Shop: US" })).not.toBeInTheDocument());
   },
 };

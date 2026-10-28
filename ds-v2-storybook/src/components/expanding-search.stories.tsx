@@ -48,7 +48,7 @@ export const Interaction: Story = {
     const field = await canvas.findByRole("combobox", { name: "Search creators" });
     await expect(canvas.getByRole("option", { name: /Maya Chen/ })).toBeInTheDocument();
     await userEvent.type(field, "zzz");
-    await expect(canvas.getByText("No results")).toBeInTheDocument();
+    await expect(canvas.getAllByText("No results").length).toBeGreaterThan(0);
     await userEvent.clear(field);
     await userEvent.type(field, "maya");
     await expect(canvas.getByRole("option", { name: /Maya Chen/ })).toBeInTheDocument();
