@@ -1,0 +1,186 @@
+/* Reacher DS v2 — load with data-accent="reacher" on <html>.
+   Accent, neutrals, radii, shadows, and motion follow the DS v2 handoff / tokens.
+   Layout, type, and the 32px control cap follow Reacher Design Rules v1. */
+
+:root[data-accent="reacher"] {
+  --accent: #3559e9;
+  --accent-strong: #2547d0;
+  --accent-pressed: #1f3bad;
+  --accent-subtle: #ebf1ff;
+  --accent-border: #97baff;
+  --accent-text: #2547d0;
+  --accent-foreground: #ffffff;
+  --control-on: #3559e9;
+  --control-thumb-on: #ffffff;
+  --control-glyph: #ffffff;
+  /* Keyboard focus is a soft glow. No outline and no offset. */
+  --focus-ring: 0 0 0 3px rgb(53 89 233 / 0.22);
+}
+
+:root {
+  --foreground: #27272a;
+  --text-secondary: #6b6b73;
+  --text-muted: #7d7d7d;
+  --border: #e9e9e9;
+  --border-subtle: #f3f3f3;
+  --border-strong: #c4c4c4;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f8f8f8;
+  --surface-hover: color-mix(in oklab, var(--foreground) 4%, transparent);
+  --surface-pressed: color-mix(in oklab, var(--foreground) 6%, transparent);
+  --control-track: #dcdcdc;
+  --disabled-bg: #f2f4f7;
+  --disabled-fg: #98a2b3;
+  --disabled-border: #e4e7ec;
+  --radius-pill: 9999px;
+  --radius-control: 14px;
+  --radius-item: 12px;
+  --radius-panel: 26px;
+  --radius-surface: 34px;
+  /* Menu rows stay 8px (Reacher), even though item radius is 12. */
+  --radius-menu: 8px;
+  --shadow-resting: 0 1px 2px oklch(0% 0 0 / 0.035);
+  --shadow-raised: 0 6px 18px oklch(0% 0 0 / 0.065), 0 1px 3px oklch(0% 0 0 / 0.035);
+  --shadow-floating: 0 20px 48px oklch(0% 0 0 / 0.105), 0 3px 10px oklch(0% 0 0 / 0.045);
+  --success-fg: #067647;
+  --success-bg: #ecfdf3;
+  --success-border: #abefc6;
+  --success-solid: #17b26a;
+  --warning-fg: #b54708;
+  --warning-bg: #fffaeb;
+  --warning-border: #fedf89;
+  --warning-solid: #f79009;
+  --error-fg: #b42318;
+  --error-bg: #fef3f2;
+  --error-border: #fecdca;
+  --error-solid: #d92d20;
+  --danger: #d92d20;
+  --info-fg: #2547d0;
+  --info-bg: #ebf1ff;
+  --info-border: #97baff;
+  --info-solid: #3559e9;
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 6px;
+  --spacing-md: 8px;
+  --spacing-lg: 12px;
+  --spacing-xl: 16px;
+  --spacing-2xl: 20px;
+  --spacing-3xl: 24px;
+  --spacing-4xl: 32px;
+  --duration-instant: 120ms;
+  --duration-fast: 160ms;
+  --duration-exit: 180ms;
+  --duration-standard: 240ms;
+  --duration-considered: 480ms;
+  --duration-spring: 580ms;
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
+
+  --space-none: 0;
+  --space-tight: 4px;
+  --space-condensed: 8px;
+  --space-cozy: 12px;
+  --space-normal: 16px;
+  --space-spacious: 24px;
+  --page-edge: 24px;
+  --content-max: 1440px;
+  --card-padding: 16px;
+  --card-padding-dense: 12px;
+  --dialog-padding: 24px;
+  --side-panel: 360px;
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --size-control: 32px;
+  --size-control-sm: 28px;
+  --size-tabs: 40px;
+  --size-badge: 24px;
+  --size-badge-sm: 20px;
+  --size-table-row: 48px;
+  --size-table-row-sm: 40px;
+  --size-dialog: 560px;
+  --size-dialog-sm: 400px;
+  --size-dialog-lg: 800px;
+  --size-drawer: 480px;
+  --size-drawer-wide: 720px;
+  --size-toast: 360px;
+  --size-popover-min: 240px;
+  --size-popover-max: 360px;
+  --size-tooltip-max: 240px;
+  --size-icon: 16px;
+  --size-icon-sm: 12px;
+  --size-icon-nav: 20px;
+  --size-avatar: 32px;
+  --size-avatar-sm: 24px;
+  --size-touch-min: 44px;
+  --text-title: 600 24px/32px var(--font-sans);
+  --text-title-tracking: -0.01em;
+  --text-heading: 600 16px/24px var(--font-sans);
+  --text-subtitle: 400 14px/20px var(--font-sans);
+  --text-body: 400 14px/20px var(--font-sans);
+  --text-body-strong: 500 14px/20px var(--font-sans);
+  --text-caption: 400 12px/16px var(--font-sans);
+  --text-caption-strong: 500 12px/16px var(--font-sans);
+  --text-label: 500 12px/16px var(--font-sans);
+  --text-number: 600 24px/32px var(--font-sans);
+  --overlay: rgba(16, 24, 40, 0.45);
+}
+
+/* Tablet 768–1279: 8 columns. Phone <768: 4 columns, tighter page metrics. */
+@media (max-width: 1279px) {
+  :root {
+    --grid-columns: 8;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --space-spacious: 16px;
+    --page-edge: 16px;
+    --dialog-padding: 16px;
+    --grid-columns: 4;
+    --grid-gutter: 16px;
+    --text-title: 600 20px/28px var(--font-sans);
+    --text-number: 600 20px/28px var(--font-sans);
+  }
+
+  input,
+  textarea,
+  select {
+    font: 400 16px/24px var(--font-sans);
+  }
+}
+
+/* Story frames can force a breakpoint without resizing the browser. */
+html[data-viewport="phone"] {
+  --space-spacious: 16px;
+  --page-edge: 16px;
+  --dialog-padding: 16px;
+  --grid-columns: 4;
+  --grid-gutter: 16px;
+  --text-title: 600 20px/28px var(--font-sans);
+  --text-number: 600 20px/28px var(--font-sans);
+}
+
+html[data-viewport="tablet"] {
+  --grid-columns: 8;
+  --grid-gutter: 24px;
+  --page-edge: 24px;
+  --space-spacious: 24px;
+}
+
+html[data-viewport="desktop"] {
+  --grid-columns: 12;
+  --grid-gutter: 24px;
+  --page-edge: 24px;
+  --space-spacious: 24px;
+  --dialog-padding: 24px;
+  --text-title: 600 24px/32px var(--font-sans);
+  --text-number: 600 24px/32px var(--font-sans);
+}

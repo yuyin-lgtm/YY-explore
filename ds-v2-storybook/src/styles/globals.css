@@ -1,0 +1,327 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "./tokens.css";
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-foreground: var(--foreground);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-raised: var(--surface-raised);
+  --color-muted-surface: var(--surface-muted);
+  --color-hover: var(--surface-hover);
+  --color-pressed: var(--surface-pressed);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-pressed: var(--accent-pressed);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+  --color-accent-text: var(--accent-text);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
+  --color-disabled: var(--disabled-bg);
+  --color-disabled-foreground: var(--disabled-fg);
+  --color-disabled-border: var(--disabled-border);
+  --color-success: var(--success-fg);
+  --color-success-subtle: var(--success-bg);
+  --color-success-border: var(--success-border);
+  --color-warning: var(--warning-fg);
+  --color-warning-subtle: var(--warning-bg);
+  --color-warning-border: var(--warning-border);
+  --color-error: var(--error-fg);
+  --color-error-subtle: var(--error-bg);
+  --color-error-border: var(--error-border);
+  --color-info: var(--info-fg);
+  --color-info-subtle: var(--info-bg);
+  --color-info-border: var(--info-border);
+  --color-track: var(--control-track);
+}
+
+/* Radius, shadow, type, and control height stay on the CSS variables
+   so a token change updates every component without a second source. */
+@utility rounded-control { border-radius: var(--radius-control); }
+@utility rounded-item { border-radius: var(--radius-item); }
+@utility rounded-panel { border-radius: var(--radius-panel); }
+@utility rounded-surface { border-radius: var(--radius-surface); }
+@utility rounded-pill { border-radius: var(--radius-pill); }
+@utility rounded-menu { border-radius: var(--radius-menu); }
+@utility shadow-resting { box-shadow: var(--shadow-resting); }
+@utility shadow-raised { box-shadow: var(--shadow-raised); }
+@utility shadow-floating { box-shadow: var(--shadow-floating); }
+@utility h-control { height: var(--size-control); }
+@utility h-control-sm { height: var(--size-control-sm); }
+@utility w-control { width: var(--size-control); }
+@utility w-control-sm { width: var(--size-control-sm); }
+@utility font-title {
+  font: var(--text-title);
+  letter-spacing: var(--text-title-tracking);
+}
+@utility font-heading { font: var(--text-heading); }
+@utility font-subtitle {
+  font: var(--text-subtitle);
+  color: var(--text-secondary);
+}
+@utility font-body { font: var(--text-body); }
+@utility font-body-strong { font: var(--text-body-strong); }
+@utility font-caption {
+  font: var(--text-caption);
+  color: var(--text-secondary);
+}
+@utility font-caption-strong { font: var(--text-caption-strong); }
+@utility font-label {
+  font: var(--text-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+@utility font-number {
+  font: var(--text-number);
+  letter-spacing: var(--text-title-tracking);
+  font-variant-numeric: tabular-nums;
+}
+@utility duration-fast { transition-duration: var(--duration-fast); }
+@utility ease-standard { transition-timing-function: var(--ease-standard); }
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--foreground);
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+/* Focus is keyboard-only (:focus-visible) and never an outline.
+   The glow composes with --ds-shadow so resting shadows stay put.
+   Rows, dialogs, and list options keep their own highlight instead of a ring. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+:focus-visible:not(
+    [data-unframed],
+    [role="dialog"],
+    [role="listbox"],
+    [role="option"],
+    [role="menuitem"],
+    [role="menu"],
+    [tabindex="-1"]
+  ) {
+  box-shadow: var(--ds-shadow, 0 0 #0000), var(--focus-ring);
+}
+
+:focus-visible[data-focus-border],
+:has(:focus-visible)[data-focus-border] {
+  border-color: var(--accent-border);
+  box-shadow: var(--ds-shadow, 0 0 #0000), var(--focus-ring);
+}
+
+.ds-btn {
+  box-shadow: var(--ds-shadow);
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    translate var(--duration-fast) var(--ease-standard);
+}
+
+.ds-btn-primary {
+  --ds-shadow: inset 0 1px 0 rgb(255 255 255 / 0.32), var(--shadow-resting);
+}
+
+.ds-btn-primary:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--accent) 84%, white);
+  --ds-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), var(--shadow-raised);
+  translate: 0 -1px;
+}
+
+.ds-btn-primary:active:not(:disabled) {
+  translate: 0 0;
+}
+
+.ds-btn-destructive {
+  --ds-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28), var(--shadow-resting);
+}
+
+.ds-btn-destructive:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--danger) 86%, white);
+  --ds-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), var(--shadow-raised);
+  translate: 0 -1px;
+}
+
+.ds-btn-destructive:active:not(:disabled) {
+  translate: 0 0;
+}
+
+.ds-btn-secondary {
+  --ds-shadow: var(--shadow-resting);
+}
+
+.ds-btn:disabled {
+  --ds-shadow: 0 0 transparent;
+  translate: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-btn-primary:hover:not(:disabled),
+  .ds-btn-destructive:hover:not(:disabled) {
+    translate: none;
+  }
+}
+
+@keyframes ds-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ds-pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.ds-spinner {
+  animation: ds-spin 0.8s linear infinite;
+}
+
+.ds-bone {
+  background-image: linear-gradient(
+    90deg,
+    var(--surface-muted) 0%,
+    color-mix(in oklab, var(--foreground) 5%, var(--surface-muted)) 50%,
+    var(--surface-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: ds-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes ds-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes ds-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ds-pop-out {
+  to {
+    opacity: 0;
+    transform: translateY(2px) scale(0.98);
+  }
+}
+
+.ds-layer[data-state="open"] {
+  animation: ds-pop-in var(--duration-fast) var(--ease-enter);
+}
+
+.ds-layer[data-state="closed"] {
+  animation: ds-pop-out var(--duration-instant) var(--ease-standard);
+}
+
+.ds-dialog[data-state="open"] {
+  animation: ds-dialog-in var(--duration-standard) var(--ease-enter);
+}
+
+.ds-dialog[data-state="closed"] {
+  animation: ds-dialog-out var(--duration-exit) var(--ease-exit);
+}
+
+@keyframes ds-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes ds-dialog-out {
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
+.ds-overlay[data-state="open"] {
+  animation: ds-fade-in var(--duration-fast) var(--ease-enter);
+}
+
+.ds-overlay[data-state="closed"] {
+  animation: ds-fade-out var(--duration-fast) var(--ease-exit);
+}
+
+@keyframes ds-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes ds-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-spinner {
+    animation: ds-pulse 1.2s ease-in-out infinite;
+  }
+
+  .ds-bone {
+    animation: ds-pulse 1.4s ease-in-out infinite;
+  }
+
+  .ds-layer[data-state="open"],
+  .ds-dialog[data-state="open"],
+  .ds-overlay[data-state="open"] {
+    animation-duration: 150ms;
+    animation-name: ds-fade-in;
+  }
+
+  .ds-layer[data-state="closed"],
+  .ds-dialog[data-state="closed"],
+  .ds-overlay[data-state="closed"] {
+    animation-duration: 100ms;
+    animation-name: ds-fade-out;
+  }
+}
