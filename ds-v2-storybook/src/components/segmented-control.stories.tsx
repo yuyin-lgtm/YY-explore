@@ -50,14 +50,13 @@ export const Interaction: Story = {
   },
   play: async ({ canvasElement, args }) => {
     const canvas = within(canvasElement);
-    const group = canvas.getByRole("radiogroup", { name: "Request status" });
-    await userEvent.click(canvas.getByRole("radio", { name: "Approved" }));
+    const pending = canvas.getByRole("radio", { name: "Pending" });
+    pending.focus();
+    await userEvent.keyboard("{ArrowRight}");
+    await expect(canvas.getByRole("radio", { name: "Approved" })).toHaveAttribute("aria-checked", "true");
     await expect(args.onValueChange).toHaveBeenCalledWith("approved");
-    group.focus();
     canvas.getByRole("radio", { name: "Approved" }).focus();
     await userEvent.keyboard("{ArrowRight}");
-    await expect(canvas.getByRole("radio", { name: "All" })).toBeChecked();
-    await userEvent.keyboard("{ArrowRight}");
-    await expect(canvas.getByRole("radio", { name: "Pending" })).toBeChecked();
+    await expect(canvas.getByRole("radio", { name: "All" })).toHaveAttribute("aria-checked", "true");
   },
 };

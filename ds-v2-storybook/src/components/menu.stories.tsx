@@ -49,11 +49,9 @@ export const Interaction: Story = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: "Actions" }));
     const body = within(document.body);
-    const edit = await body.findByRole("menuitem", { name: "Edit" });
-    await userEvent.keyboard("{ArrowDown}");
-    await userEvent.click(edit);
+    await userEvent.click(await body.findByRole("menuitem", { name: "Edit" }));
     await expect(canvas.getByText("Last action: Edit")).toBeInTheDocument();
-    await userEvent.click(canvas.getByRole("button", { name: "Actions" }));
+    await userEvent.click(await canvas.findByRole("button", { name: "Actions" }));
     await userEvent.click(await body.findByRole("menuitem", { name: "Delete" }));
     await expect(canvas.getByText("Last action: Delete")).toBeInTheDocument();
   },

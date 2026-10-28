@@ -18,6 +18,7 @@ export function PopoverContent({
       <PopoverPrimitive.Content
         align={align}
         sideOffset={sideOffset}
+        aria-label="Popover"
         className={cn(
           "ds-layer z-40 w-[min(var(--size-popover-max),calc(100vw-32px))] min-w-[var(--size-popover-min)] rounded-panel border border-border bg-raised p-3 shadow-floating outline-none",
           className,

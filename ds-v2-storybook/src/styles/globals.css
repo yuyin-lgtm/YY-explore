@@ -131,13 +131,18 @@
     [role="menu"],
     [tabindex="-1"]
   ) {
-  box-shadow: var(--ds-shadow, 0 0 #0000), var(--focus-ring);
+  box-shadow: var(--ds-shadow, 0 0 transparent), var(--focus-ring);
 }
 
 :focus-visible[data-focus-border],
 :has(:focus-visible)[data-focus-border] {
   border-color: var(--accent-border);
-  box-shadow: var(--ds-shadow, 0 0 #0000), var(--focus-ring);
+  box-shadow: var(--ds-shadow, 0 0 transparent), var(--focus-ring);
+}
+
+.ds-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-shadow, 0 0 transparent), var(--focus-ring);
 }
 
 .ds-btn {
@@ -248,21 +253,8 @@
   }
 }
 
-.ds-layer[data-state="open"] {
-  animation: ds-pop-in var(--duration-fast) var(--ease-enter);
-}
-
-.ds-layer[data-state="closed"] {
-  animation: ds-pop-out var(--duration-instant) var(--ease-standard);
-}
-
-.ds-dialog[data-state="open"] {
-  animation: ds-dialog-in var(--duration-standard) var(--ease-enter);
-}
-
-.ds-dialog[data-state="closed"] {
-  animation: ds-dialog-out var(--duration-exit) var(--ease-exit);
-}
+/* No CSS animation on Radix layers. Presence waits for animationend, and a
+   cancelled open animation never emits one, so the layer would stay mounted. */
 
 @keyframes ds-dialog-in {
   from {
@@ -282,13 +274,6 @@
   }
 }
 
-.ds-overlay[data-state="open"] {
-  animation: ds-fade-in var(--duration-fast) var(--ease-enter);
-}
-
-.ds-overlay[data-state="closed"] {
-  animation: ds-fade-out var(--duration-fast) var(--ease-exit);
-}
 
 @keyframes ds-fade-in {
   from {
@@ -311,17 +296,4 @@
     animation: ds-pulse 1.4s ease-in-out infinite;
   }
 
-  .ds-layer[data-state="open"],
-  .ds-dialog[data-state="open"],
-  .ds-overlay[data-state="open"] {
-    animation-duration: 150ms;
-    animation-name: ds-fade-in;
-  }
-
-  .ds-layer[data-state="closed"],
-  .ds-dialog[data-state="closed"],
-  .ds-overlay[data-state="closed"] {
-    animation-duration: 100ms;
-    animation-name: ds-fade-out;
-  }
 }

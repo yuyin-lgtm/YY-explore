@@ -32,8 +32,8 @@ export const Group: Story = {
     const remove = canvas.getByRole("button", { name: "Remove filter: GMV: >$10k" });
     remove.focus();
     await userEvent.keyboard("{Backspace}");
-    await expect(canvas.queryByText(">$10k")).not.toBeInTheDocument();
+    await expect(canvas.queryByRole("button", { name: "Remove filter: GMV: >$10k" })).not.toBeInTheDocument();
     await userEvent.click(canvas.getByRole("button", { name: "Remove filter: Shop: US" }));
-    await expect(canvas.queryByText("US")).not.toBeInTheDocument();
+    await expect(canvas.queryByRole("button", { name: "Remove filter: Shop: US" })).not.toBeInTheDocument();
   },
 };

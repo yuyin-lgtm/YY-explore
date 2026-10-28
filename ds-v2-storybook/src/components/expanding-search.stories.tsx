@@ -46,7 +46,7 @@ export const Interaction: Story = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: "Search creators" }));
     const field = await canvas.findByRole("combobox", { name: "Search creators" });
-    await expect(canvas.getByText("Recent")).toBeInTheDocument();
+    await expect(canvas.getByRole("option", { name: /Maya Chen/ })).toBeInTheDocument();
     await userEvent.type(field, "zzz");
     await expect(canvas.getByText("No results")).toBeInTheDocument();
     await userEvent.clear(field);

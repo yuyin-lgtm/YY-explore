@@ -129,7 +129,7 @@ export function Select({
         </button>
         <AnimatePresence>
           {open ? (
-            <motion.ul
+            <motion.div
               id={listId}
               role="listbox"
               aria-label={label}
@@ -139,12 +139,12 @@ export function Select({
               transition={reduce ? reducedFade : { ...motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.fast, ease: motionTokens.ease.enter } }}
               className="absolute z-30 mt-1 max-h-64 w-full overflow-auto rounded-panel border border-border bg-raised p-1.5 shadow-floating"
             >
-              {enabled.length === 0 ? <li className="px-2 py-3 font-caption">No options</li> : null}
+              {enabled.length === 0 ? <div className="px-2 py-3 font-caption">No options</div> : null}
               {options.map((option, index) => {
                 const isSelected = option.value === current;
                 const isActive = index === active;
                 return (
-                  <li
+                  <div
                     key={option.value}
                     id={`${listId}-${option.value}`}
                     role="option"
@@ -161,10 +161,10 @@ export function Select({
                   >
                     <span className="truncate">{option.label}</span>
                     {isSelected ? <Check size={16} strokeWidth={1.5} aria-hidden className="text-accent-text" /> : null}
-                  </li>
+                  </div>
                 );
               })}
-            </motion.ul>
+            </motion.div>
           ) : null}
         </AnimatePresence>
       </div>

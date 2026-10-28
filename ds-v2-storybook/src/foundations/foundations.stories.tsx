@@ -29,7 +29,7 @@ const groups = [
     items: [
       ["foreground", "--foreground", "#27272A"],
       ["text-secondary", "--text-secondary", "#6B6B73"],
-      ["text-muted", "--text-muted", "#7D7D7D"],
+      ["text-muted", "--text-muted", "#767676"],
       ["border", "--border", "#E9E9E9"],
       ["border-subtle", "--border-subtle", "#F3F3F3"],
       ["border-strong", "--border-strong", "#C4C4C4"],

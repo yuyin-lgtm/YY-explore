@@ -49,6 +49,6 @@ export const WithSlider: Story = {
     const body = within(document.body);
     await expect(await body.findByText("Minimum engagement")).toBeInTheDocument();
     await userEvent.keyboard("{Escape}");
-    await expect(body.queryByText("Minimum engagement")).not.toBeInTheDocument();
+    await expect(body.queryByRole("dialog", { name: "Popover" })).not.toBeInTheDocument();
   },
 };

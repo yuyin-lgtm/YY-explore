@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-import { useId, useState, type KeyboardEvent, type PointerEvent as ReactPointerEvent, type RefObject } from "react";
+import { useEffect, useId, useState, type KeyboardEvent, type PointerEvent as ReactPointerEvent, type RefObject } from "react";
 import { cn } from "../lib/cn";
 import { motionTokens } from "../lib/motion";
 
@@ -137,28 +137,16 @@ export function Slider<T extends SliderValue = number>({
         />
         {pairedInput
           ? values.map((thumb, index) => (
-              <input
+              <PairedNumber
                 key={index}
-                type="number"
-                inputMode="decimal"
-                aria-label={values.length === 2 ? `${label} ${index === 0 ? "start" : "end"}` : `${label} value`}
+                value={thumb}
                 min={min}
                 max={max}
                 step={step}
                 disabled={disabled}
-                value={thumb}
-                onChange={(event) => {
-                  const next = event.target.valueAsNumber;
-                  if (Number.isNaN(next)) return;
-                  setThumb(index, next);
-                }}
-                data-focus-border=""
-                className={cn(
-                  "w-[4.5rem] shrink-0 rounded-control border border-border bg-background px-2 text-right font-body text-foreground tabular-nums outline-none",
-                  "transition-[border-color,box-shadow] duration-fast ease-standard hover:border-border-strong",
-                  "disabled:border-disabled-border disabled:bg-disabled disabled:text-disabled-foreground",
-                  row,
-                )}
+                row={row}
+                label={values.length === 2 ? `${label} ${index === 0 ? "start" : "end"}` : `${label} value`}
+                onCommit={(next) => setThumb(index, next)}
               />
             ))
           : null}
@@ -192,6 +180,58 @@ export function Slider<T extends SliderValue = number>({
         </div>
       ) : null}
     </div>
+  );
+}
+
+function PairedNumber({
+  value,
+  min,
+  max,
+  step,
+  disabled,
+  row,
+  label,
+  onCommit,
+}: {
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  disabled?: boolean;
+  row: string;
+  label: string;
+  onCommit: (value: number) => void;
+}) {
+  const [text, setText] = useState(String(value));
+  const [focused, setFocused] = useState(false);
+  useEffect(() => {
+    if (!focused) setText(String(value));
+  }, [focused, value]);
+  return (
+    <input
+      type="number"
+      inputMode="decimal"
+      aria-label={label}
+      min={min}
+      max={max}
+      step={step}
+      disabled={disabled}
+      value={text}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      onChange={(event) => {
+        setText(event.target.value);
+        const next = event.target.valueAsNumber;
+        if (!Number.isNaN(next)) onCommit(next);
+      }}
+      data-focus-border=""
+      className={cn(
+        "w-[4.5rem] shrink-0 rounded-control border border-border bg-background px-2 text-right font-body text-foreground tabular-nums outline-none",
+        "transition-[border-color,box-shadow] duration-fast ease-standard hover:border-border-strong",
+        "disabled:border-disabled-border disabled:bg-disabled disabled:text-disabled-foreground",
+        row,
+      )}
+    />
   );
 }
 

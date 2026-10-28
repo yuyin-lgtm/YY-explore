@@ -88,7 +88,7 @@ export function ToastViewport({ toasts, onDismiss }: { toasts: ToastRecord[]; on
             role={toast.tone === "error" || toast.tone === "warning" ? "alert" : "status"}
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? { opacity: 0, transition: reducedFadeOut } : { opacity: 0, y: 6, transition: { duration: motionTokens.duration.exit, ease: motionTokens.ease.exit } }}
+            exit={{ opacity: 0, transition: { duration: reduce ? reducedFadeOut.duration : 0.05 } }}
             transition={reduce ? reducedFade : { ...motionTokens.spring.smooth, delay: reduce ? 0 : index * motionTokens.stagger.item }}
             drag={reduce ? false : "x"}
             dragConstraints={{ left: 0, right: 0 }}

@@ -165,7 +165,7 @@ export function Combobox({
         </div>
         <AnimatePresence>
           {open ? (
-            <motion.ul
+            <motion.div
               id={listId}
               role="listbox"
               aria-label={label}
@@ -175,12 +175,12 @@ export function Combobox({
               transition={reduce ? reducedFade : motionTokens.spring.smooth}
               className="absolute z-30 mt-1 max-h-72 w-full overflow-auto rounded-panel border border-border bg-raised p-1.5 shadow-floating"
             >
-              {filtered.length === 0 ? <li className="px-2 py-6 text-center font-caption">{emptyMessage}</li> : null}
+              {filtered.length === 0 ? <div className="px-2 py-6 text-center font-caption">{emptyMessage}</div> : null}
               {filtered.map((item, index) => {
                 const isSelected = item.value === current;
                 const isActive = index === active;
                 return (
-                  <li
+                  <div
                     key={item.value}
                     id={`${listId}-${item.value}`}
                     role="option"
@@ -203,10 +203,10 @@ export function Combobox({
                       {item.meta ? <span className="block truncate font-caption">{item.meta}</span> : null}
                     </span>
                     {isSelected ? <Check size={16} strokeWidth={1.5} aria-hidden className="text-accent-text" /> : null}
-                  </li>
+                  </div>
                 );
               })}
-            </motion.ul>
+            </motion.div>
           ) : null}
         </AnimatePresence>
       </div>

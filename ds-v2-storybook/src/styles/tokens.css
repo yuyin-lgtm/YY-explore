@@ -14,13 +14,13 @@
   --control-thumb-on: #ffffff;
   --control-glyph: #ffffff;
   /* Keyboard focus is a soft glow. No outline and no offset. */
-  --focus-ring: 0 0 0 3px rgb(53 89 233 / 0.22);
+  --focus-ring: 0 0 0 3px rgba(53, 89, 233, 0.22);
 }
 
 :root {
   --foreground: #27272a;
   --text-secondary: #6b6b73;
-  --text-muted: #7d7d7d;
+  --text-muted: #767676;
   --border: #e9e9e9;
   --border-subtle: #f3f3f3;
   --border-strong: #c4c4c4;
@@ -32,7 +32,7 @@
   --surface-pressed: color-mix(in oklab, var(--foreground) 6%, transparent);
   --control-track: #dcdcdc;
   --disabled-bg: #f2f4f7;
-  --disabled-fg: #98a2b3;
+  --disabled-fg: #4a4e5a;
   --disabled-border: #e4e7ec;
   --radius-pill: 9999px;
   --radius-control: 14px;

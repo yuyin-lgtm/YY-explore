@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 import { Button } from "./button";
 import { Toast, ToastProvider, useToast, type ToastTone } from "./toast";
 
@@ -47,7 +47,7 @@ export const Interaction: Story = {
     const body = within(document.body);
     await expect(await body.findByText("Request approved")).toBeInTheDocument();
     await userEvent.click(body.getByRole("button", { name: "Dismiss Request approved" }));
-    await expect(body.queryByText("Request approved")).not.toBeInTheDocument();
+    await waitFor(() => expect(body.queryByText("Request approved")).not.toBeInTheDocument());
   },
 };
 
